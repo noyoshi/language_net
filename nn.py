@@ -65,13 +65,14 @@ def train_neural_network(x):
     # learning rate = 0.001, default
     optimizer = tf.train.AdamOptimizer().minimize(cost)
     # optimizer = tf.train.AdamOptimizer(0.01).minimize(cost)
-    hm_epochs = 10
+    hm_epochs = 1
     # how many epochs?
 
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
         # initializes all of the variables, the session is now live!
 
+        writer = tf.summary.FileWriter("logs/", sess.graph)
         for epoch in range(hm_epochs):
             epoch_loss = 0
             i = 0
