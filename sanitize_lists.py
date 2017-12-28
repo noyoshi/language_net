@@ -3,6 +3,10 @@
 import sys 
 import subprocess 
 
+# Usage: ./sanitize_lists.py filename1 filename2 ...
+# Moves files to "old" + filename, and updates the files with sanitized versions
+# of themselves. 
+
 def temp_parse(line):
     # I messed up grep/diff when I made the files, so I am fixing that specfic
     # error with this  
