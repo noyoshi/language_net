@@ -5,7 +5,7 @@ import numpy as np
 
 from parse_data import create_feature_sets_and_labels
 
-data_sets = ['japanese_list.txt', 'english_list.txt']
+data_sets = ['lists/japanese_list.txt', 'lists/english_list.txt']
 train_x, train_y, test_x, test_y = create_feature_sets_and_labels(data_sets)
 
 n_nodes_hl1 = 500
