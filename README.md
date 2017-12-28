@@ -10,3 +10,4 @@ Python3 using TensorFlow.
 
 - [ ] Add in more languages 
 - [ ] Make tensor graph 
+- [ ] Make GUI/graph of accuracy 
