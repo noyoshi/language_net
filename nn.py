@@ -5,14 +5,22 @@ import numpy as np
 
 from parse_data import create_feature_sets_and_labels
 
-data_sets = ['lists/japanese_list.txt', 'lists/english_list.txt']
+data_sets = ['lists/japanese_list.txt', 
+             'lists/english_list.txt',
+             'lists/truncated_latin_list.txt']
+
+#data_sets = ['lists/japanese_list.txt',
+#             'lists/english_list.txt']
+
 train_x, train_y, test_x, test_y = create_feature_sets_and_labels(data_sets)
 
 n_nodes_hl1 = 500
 n_nodes_hl2 = 500
 n_nodes_hl3 = 500
 
-n_classes = 2
+# Latin support will come later... 
+n_classes = 3
+# n_classes = 2 
 
 batch_size = 100
 # we go through batches of 100 features at a time, so that we do not have to
@@ -57,6 +65,7 @@ def neural_network_model(data):
 
     return output
 
+
 def train_neural_network(x):
 
     prediction = neural_network_model(x)
@@ -65,7 +74,7 @@ def train_neural_network(x):
     # learning rate = 0.001, default
     optimizer = tf.train.AdamOptimizer().minimize(cost)
     # optimizer = tf.train.AdamOptimizer(0.01).minimize(cost)
-    hm_epochs = 1
+    hm_epochs = 10  
     # how many epochs?
 
     with tf.Session() as sess:
@@ -106,4 +115,6 @@ def train_neural_network(x):
 
         print('Accuracy:', accuracy.eval({x:test_x, y:test_y}))
 
-train_neural_network(x)
+
+if __name__ == '__main__':
+    train_neural_network(x)
